@@ -21,9 +21,43 @@
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7cu-uU-I8h">
                                         <rect key="frame" x="0.0" y="0.0" width="393" height="374.66666666666669"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rQf-ba-abo">
+                                                <rect key="frame" x="40" y="140" width="313" height="100"/>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="100" id="P6c-4z-BQF"/>
+                                                </constraints>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
+                                            </textField>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="rQf-ba-abo" secondAttribute="trailing" constant="40" id="NES-t9-k2z"/>
+                                            <constraint firstItem="rQf-ba-abo" firstAttribute="leading" secondItem="7cu-uU-I8h" secondAttribute="leading" constant="40" id="c5A-wZ-bUd"/>
+                                            <constraint firstItem="rQf-ba-abo" firstAttribute="top" secondItem="7cu-uU-I8h" secondAttribute="top" constant="140" id="m3d-gi-hKg"/>
+                                        </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Ch-My-j5R">
                                         <rect key="frame" x="0.0" y="374.66666666666674" width="393" height="374.33333333333326"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Bad-WR-S4l">
+                                                <rect key="frame" x="40" y="174.33333333333331" width="313" height="100"/>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="100" id="65O-UZ-NJ9"/>
+                                                </constraints>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
+                                            </textField>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="Bad-WR-S4l" secondAttribute="trailing" constant="40" id="G1M-FE-VIq"/>
+                                            <constraint firstAttribute="bottom" secondItem="Bad-WR-S4l" secondAttribute="bottom" constant="100" id="H9A-F9-ldq"/>
+                                            <constraint firstItem="Bad-WR-S4l" firstAttribute="leading" secondItem="6Ch-My-j5R" secondAttribute="leading" constant="40" id="Nq3-Td-YPB"/>
+                                        </constraints>
                                     </view>
                                 </subviews>
                                 <constraints>
@@ -59,8 +93,10 @@
                     </view>
                     <navigationItem key="navigationItem" id="vhY-P0-CyM"/>
                     <connections>
+                        <outlet property="bottomTextField" destination="Bad-WR-S4l" id="bdf-kc-R3Z"/>
                         <outlet property="bottomView" destination="6Ch-My-j5R" id="4rA-tf-Nm6"/>
                         <outlet property="swapButton" destination="wnO-zt-QYh" id="zby-Pw-Txi"/>
+                        <outlet property="topTextField" destination="rQf-ba-abo" id="dlr-mT-e4u"/>
                         <outlet property="topView" destination="7cu-uU-I8h" id="8XZ-ia-kid"/>
                     </connections>
                 </viewController>

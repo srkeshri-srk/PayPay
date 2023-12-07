@@ -12,6 +12,8 @@ class HomeViewController: BaseViewController {
     @IBOutlet weak var swapButton: UIButton!
     @IBOutlet weak var topView: UIView!
     @IBOutlet weak var bottomView: UIView!
+    @IBOutlet weak var topTextField: UITextField!
+    @IBOutlet weak var bottomTextField: UITextField!
     
     
     override func viewDidLoad() {
@@ -29,6 +31,9 @@ class HomeViewController: BaseViewController {
         bottomView.backgroundColor = .cadetGrey
         swapButton.backgroundColor = .white
         swapButton.tintColor = .vistaBlue
+        
+        topTextField.setupUnderLine()
+        bottomTextField.setupUnderLine()
     }
     
     @IBAction func swapButtonAction(_ sender: UIButton) {
