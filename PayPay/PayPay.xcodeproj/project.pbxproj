@@ -17,6 +17,12 @@
 		E1BA747B2B21955A00B5C7B5 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BA747A2B21955A00B5C7B5 /* Constants.swift */; };
 		E1CBD6F42B21C43D00970F71 /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CBD6F32B21C43D00970F71 /* UITextField+Extension.swift */; };
 		E1CBD6F72B21C48000970F71 /* ColorsPalette.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1CBD6F62B21C48000970F71 /* ColorsPalette.xcassets */; };
+		E1CBD6FE2B21CC4800970F71 /* NetworkLayer+DataTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CBD6F82B21CC4800970F71 /* NetworkLayer+DataTask.swift */; };
+		E1CBD6FF2B21CC4800970F71 /* NetworkLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CBD6F92B21CC4800970F71 /* NetworkLayer.swift */; };
+		E1CBD7002B21CC4800970F71 /* URLGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CBD6FA2B21CC4800970F71 /* URLGenerator.swift */; };
+		E1CBD7012B21CC4800970F71 /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CBD6FB2B21CC4800970F71 /* APIRequest.swift */; };
+		E1CBD7022B21CC4800970F71 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CBD6FC2B21CC4800970F71 /* NetworkError.swift */; };
+		E1CBD7032B21CC4800970F71 /* JSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CBD6FD2B21CC4800970F71 /* JSONParser.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +38,12 @@
 		E1BA747A2B21955A00B5C7B5 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		E1CBD6F32B21C43D00970F71 /* UITextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
 		E1CBD6F62B21C48000970F71 /* ColorsPalette.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ColorsPalette.xcassets; sourceTree = "<group>"; };
+		E1CBD6F82B21CC4800970F71 /* NetworkLayer+DataTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NetworkLayer+DataTask.swift"; sourceTree = "<group>"; };
+		E1CBD6F92B21CC4800970F71 /* NetworkLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkLayer.swift; sourceTree = "<group>"; };
+		E1CBD6FA2B21CC4800970F71 /* URLGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLGenerator.swift; sourceTree = "<group>"; };
+		E1CBD6FB2B21CC4800970F71 /* APIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
+		E1CBD6FC2B21CC4800970F71 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		E1CBD6FD2B21CC4800970F71 /* JSONParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONParser.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +77,7 @@
 			isa = PBXGroup;
 			children = (
 				E1BA746E2B2193CD00B5C7B5 /* App Lifecycle */,
+				E1CBD7042B21CC4B00970F71 /* Network Layer */,
 				E1BA74742B21941D00B5C7B5 /* Modules */,
 				E1BA74792B2194E700B5C7B5 /* Comman */,
 				E1BA746F2B2193D400B5C7B5 /* Resources */,
@@ -133,6 +146,19 @@
 				E1CBD6F32B21C43D00970F71 /* UITextField+Extension.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		E1CBD7042B21CC4B00970F71 /* Network Layer */ = {
+			isa = PBXGroup;
+			children = (
+				E1CBD6F82B21CC4800970F71 /* NetworkLayer+DataTask.swift */,
+				E1CBD6F92B21CC4800970F71 /* NetworkLayer.swift */,
+				E1CBD6FA2B21CC4800970F71 /* URLGenerator.swift */,
+				E1CBD6FB2B21CC4800970F71 /* APIRequest.swift */,
+				E1CBD6FC2B21CC4800970F71 /* NetworkError.swift */,
+				E1CBD6FD2B21CC4800970F71 /* JSONParser.swift */,
+			);
+			path = "Network Layer";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -208,10 +234,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				E1BA747B2B21955A00B5C7B5 /* Constants.swift in Sources */,
+				E1CBD6FE2B21CC4800970F71 /* NetworkLayer+DataTask.swift in Sources */,
+				E1CBD7032B21CC4800970F71 /* JSONParser.swift in Sources */,
 				E1BA745B2B2192AC00B5C7B5 /* AppDelegate.swift in Sources */,
 				E1BA74782B2194D200B5C7B5 /* BaseViewController.swift in Sources */,
+				E1CBD7002B21CC4800970F71 /* URLGenerator.swift in Sources */,
+				E1CBD6FF2B21CC4800970F71 /* NetworkLayer.swift in Sources */,
 				E1CBD6F42B21C43D00970F71 /* UITextField+Extension.swift in Sources */,
 				E1BA745D2B2192AC00B5C7B5 /* SceneDelegate.swift in Sources */,
+				E1CBD7012B21CC4800970F71 /* APIRequest.swift in Sources */,
+				E1CBD7022B21CC4800970F71 /* NetworkError.swift in Sources */,
 				E1BA74712B2193EB00B5C7B5 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
