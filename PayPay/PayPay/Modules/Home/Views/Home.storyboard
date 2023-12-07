@@ -31,6 +31,9 @@
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="50"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
+                                                <connections>
+                                                    <action selector="topTextFieldEditingChanged:" destination="Y6W-OH-hqX" eventType="editingChanged" id="EK2-Nn-Zdu"/>
+                                                </connections>
                                             </textField>
                                         </subviews>
                                         <constraints>
@@ -51,6 +54,9 @@
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="50"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
+                                                <connections>
+                                                    <action selector="BottomTextFieldEditingChanged:" destination="Y6W-OH-hqX" eventType="editingDidEnd" id="Y4M-3d-QJv"/>
+                                                </connections>
                                             </textField>
                                         </subviews>
                                         <constraints>

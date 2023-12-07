@@ -15,11 +15,12 @@ class HomeViewController: BaseViewController {
     @IBOutlet weak var topTextField: UITextField!
     @IBOutlet weak var bottomTextField: UITextField!
     
+    let homeVM: HomeViewModelProtocol = HomeViewModel.builder()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        setupUI()        
+        setupUI() 
     }
     
     private func setupUI() {
@@ -44,6 +45,21 @@ class HomeViewController: BaseViewController {
                 self.swapButton.transform = .identity
             }
         }
-    }
         
+        let topTFTextValue = topTextField.text
+        let bottomTFTextValue = bottomTextField.text
+        
+        topTextField.text = bottomTFTextValue
+        bottomTextField.text = topTFTextValue
+    }
+    
+    @IBAction func topTextFieldEditingChanged(_ sender: UITextField) {
+        homeVM.convert(from: "USD", to: "INR", value: 100.0)
+    }
+    
+    
+    @IBAction func BottomTextFieldEditingChanged(_ sender: UITextField) {
+        homeVM.convert(from: "USD", to: "INR", value: 100.0)
+    }
+    
 }

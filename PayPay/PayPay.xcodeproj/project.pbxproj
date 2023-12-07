@@ -23,6 +23,8 @@
 		E1CBD7012B21CC4800970F71 /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CBD6FB2B21CC4800970F71 /* APIRequest.swift */; };
 		E1CBD7022B21CC4800970F71 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CBD6FC2B21CC4800970F71 /* NetworkError.swift */; };
 		E1CBD7032B21CC4800970F71 /* JSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CBD6FD2B21CC4800970F71 /* JSONParser.swift */; };
+		E1CBD7062B21CC7600970F71 /* HomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CBD7052B21CC7600970F71 /* HomeModel.swift */; };
+		E1CBD7082B21CC8100970F71 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CBD7072B21CC8100970F71 /* HomeViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +46,8 @@
 		E1CBD6FB2B21CC4800970F71 /* APIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
 		E1CBD6FC2B21CC4800970F71 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		E1CBD6FD2B21CC4800970F71 /* JSONParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONParser.swift; sourceTree = "<group>"; };
+		E1CBD7052B21CC7600970F71 /* HomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModel.swift; sourceTree = "<group>"; };
+		E1CBD7072B21CC8100970F71 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +121,8 @@
 			isa = PBXGroup;
 			children = (
 				E1BA74762B21942600B5C7B5 /* Views */,
+				E1CBD7052B21CC7600970F71 /* HomeModel.swift */,
+				E1CBD7072B21CC8100970F71 /* HomeViewModel.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -242,6 +248,8 @@
 				E1CBD6FF2B21CC4800970F71 /* NetworkLayer.swift in Sources */,
 				E1CBD6F42B21C43D00970F71 /* UITextField+Extension.swift in Sources */,
 				E1BA745D2B2192AC00B5C7B5 /* SceneDelegate.swift in Sources */,
+				E1CBD7082B21CC8100970F71 /* HomeViewModel.swift in Sources */,
+				E1CBD7062B21CC7600970F71 /* HomeModel.swift in Sources */,
 				E1CBD7012B21CC4800970F71 /* APIRequest.swift in Sources */,
 				E1CBD7022B21CC4800970F71 /* NetworkError.swift in Sources */,
 				E1BA74712B2193EB00B5C7B5 /* HomeViewController.swift in Sources */,
