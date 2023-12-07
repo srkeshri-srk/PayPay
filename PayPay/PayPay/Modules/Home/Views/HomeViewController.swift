@@ -8,15 +8,15 @@
 import UIKit
 
 class HomeViewController: BaseViewController {
-
+        
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        setupUI()
+        setupUI()        
     }
     
     private func setupUI() {
-        setNavBar(title: "PayPay", prefersLargeTitles: true)
+        setNavBar(title: Constants.Home.navBarTitle, prefersLargeTitles: true)
     }
-    
+        
 }
