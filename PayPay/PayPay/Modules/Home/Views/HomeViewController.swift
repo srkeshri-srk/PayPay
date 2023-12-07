@@ -54,12 +54,20 @@ class HomeViewController: BaseViewController {
     }
     
     @IBAction func topTextFieldEditingChanged(_ sender: UITextField) {
-        homeVM.convert(from: "USD", to: "INR", value: 100.0)
+        homeVM.convert(from: "USD", to: "INR", amount: 100.0) { value in
+            DispatchQueue.main.async {
+                self.bottomTextField.text = value.formatted(.currency(code: "INR"))
+            }
+        }
     }
     
     
     @IBAction func BottomTextFieldEditingChanged(_ sender: UITextField) {
-        homeVM.convert(from: "USD", to: "INR", value: 100.0)
+        homeVM.convert(from: "INR", to: "USD", amount: 100.0) { value in
+            DispatchQueue.main.async {
+                self.topTextField.text = value.formatted(.currency(code: "USD"))
+            }
+        }
     }
     
 }
