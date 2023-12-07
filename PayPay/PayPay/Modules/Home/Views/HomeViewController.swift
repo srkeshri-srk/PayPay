@@ -17,10 +17,14 @@ class HomeViewController: BaseViewController {
     @IBOutlet weak var topMenuButton: AutoAddPaddingButtton!
     @IBOutlet weak var bottomMenuButton: AutoAddPaddingButtton!
     
-    let homeVM: HomeViewModelProtocol = HomeViewModel.builder()
-    let dataSource = ["Apple", "Mango", "Orange", "Banana", "Kiwi", "Watermelon", "Apple", "Mango", "Orange", "Banana", "Kiwi", "Watermelon", "Apple", "Mango", "Orange", "Banana", "Kiwi", "Watermelon", "Apple", "Mango", "Orange", "Banana", "Kiwi", "Watermelon"]
+    let viewModel: HomeViewModelProtocol = HomeViewModel.builder()
     var menuChildren: [UIMenuElement] = []
-    let actionClosure = { (action: UIAction) in
+    var topSelectedMenuValue: String = ""
+    var bottomSelectedMenuValue: String = ""
+    let topActionClosure = { (action: UIAction) in
+        print(action.title)
+    }
+    let bottomActionClosure = { (action: UIAction) in
         print(action.title)
     }
     
@@ -28,6 +32,7 @@ class HomeViewController: BaseViewController {
         super.viewDidLoad()
 
         setupUI() 
+        setupCurrencyMenu()
     }
     
     private func setupUI() {
@@ -44,11 +49,9 @@ class HomeViewController: BaseViewController {
         bottomTextField.setupUnderLine()
         topTextField.placeholder = "USD"
         bottomTextField.placeholder = "INR"
-        
-        for fruit in dataSource {
-            menuChildren.append(UIAction(title: fruit, handler: actionClosure))
-        }
-        
+    }
+    
+    func setupCurrencyMenu() {
         [topMenuButton, bottomMenuButton].forEach { button in
             button?.layer.cornerRadius = 5.0
             button?.layer.borderColor = UIColor.white.cgColor
@@ -56,9 +59,22 @@ class HomeViewController: BaseViewController {
             button?.layer.masksToBounds = true
             button?.tintColor = .white
             button?.setTitleColor(.white, for: .normal)
-            button?.menu = UIMenu(options: .displayInline, children: menuChildren)
-            button?.showsMenuAsPrimaryAction = true
-            button?.changesSelectionAsPrimaryAction = true
+        }
+        
+        viewModel.getAllCurrency { [weak self] menuDataSource in
+            guard let self = self else { return }
+            
+            for currency in menuDataSource.keys {
+                self.menuChildren.append(UIAction(title: currency, handler: topActionClosure))
+            }
+            
+            DispatchQueue.main.async {
+                [self.topMenuButton, self.bottomMenuButton].forEach { button in
+                    button?.menu = UIMenu(options: .displayInline, children: self.menuChildren)
+                    button?.showsMenuAsPrimaryAction = true
+                    button?.changesSelectionAsPrimaryAction = true
+                }
+            }
         }
     }
     
@@ -85,7 +101,7 @@ class HomeViewController: BaseViewController {
     @IBAction func topTextFieldEditingChanged(_ sender: UITextField) {
         guard let value = sender.text, let amount = Double(value) else { return }
         
-        homeVM.convert(from: "USD", to: "INR", amount: amount) { value in
+        viewModel.convert(from: "USD", to: "INR", amount: amount) { value in
             DispatchQueue.main.async {
                 self.bottomTextField.text = value.formatted(.currency(code: "INR"))
             }
@@ -96,7 +112,7 @@ class HomeViewController: BaseViewController {
     @IBAction func BottomTextFieldEditingChanged(_ sender: UITextField) {
         guard let value = sender.text, let amount = Double(value) else { return }
 
-        homeVM.convert(from: "INR", to: "USD", amount: amount) { value in
+        viewModel.convert(from: "INR", to: "USD", amount: amount) { value in
             DispatchQueue.main.async {
                 self.topTextField.text = value.formatted(.currency(code: "USD"))
             }

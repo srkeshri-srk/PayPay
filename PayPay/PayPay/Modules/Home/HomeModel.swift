@@ -29,17 +29,9 @@ struct Query: Codable {
 }
 
 
-//{
-//    "success": true,
-//    "query": {
-//        "from": "USD",
-//        "to": "INR",
-//        "amount": 100
-//    },
-//    "info": {
-//        "timestamp": 1701944103,
-//        "rate": 83.354967
-//    },
-//    "date": "2023-12-07",
-//    "result": 8335.4967
-//}
+// MARK: - Currency
+struct CurrencyModel: Codable {
+    let success: Bool?
+    let symbols: [String: String]?
+}
+

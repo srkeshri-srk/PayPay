@@ -9,17 +9,25 @@ import Foundation
 
 
 protocol HomeViewModelProtocol {
+    var menuDataSource: [String: String]? { get }
+
     static func builder() -> HomeViewModel
     func convert(from: String, to: String, amount: Double, completion: @escaping (Double)->Void)
+    func getAllCurrency(completion: @escaping ([String: String]) -> Void)
 }
 
 class HomeViewModel: HomeViewModelProtocol {
     //MARK: - Variables
     let networkLayer = NetworkLayerServices()
     let converterURL: URL?
+    let currencyURL: URL?
+    var menuDataSource: [String: String]? = ["USD": "", "INR": ""]
+    let headerParams = ["X-RapidAPI-Key": "ba86276271mshd07c0a18f90dd93p15d8a0jsn92b0d4e8e6cc",
+                        "X-RapidAPI-Host": "currency-conversion-and-exchange-rates.p.rapidapi.com"]
     
-    init(url: URL?) {
-        converterURL = url
+    init(converterURL: URL?, currencyURL: URL?) {
+        self.converterURL = converterURL
+        self.currencyURL = currencyURL
     }
     
     //MARK: - Methods
@@ -28,9 +36,6 @@ class HomeViewModel: HomeViewModelProtocol {
             completion(0.0)
             return
         }
-
-        let headerParams = ["X-RapidAPI-Key": "ba86276271mshd07c0a18f90dd93p15d8a0jsn92b0d4e8e6cc",
-                            "X-RapidAPI-Host": "currency-conversion-and-exchange-rates.p.rapidapi.com"]
         
         let queryParams: [String: Any] = ["from": from,
                                           "to": to,
@@ -49,11 +54,32 @@ class HomeViewModel: HomeViewModelProtocol {
             }
         }
     }
+    
+    func getAllCurrency(completion: @escaping ([String: String]) -> Void) {
+        guard let url = currencyURL else {
+            completion(["USD": "", "INR": ""])
+            return
+        }
+
+        let apiRequest = APIRequest(url: url, method: .GET, headers: headerParams, queryParams: nil, body: nil)
+        
+        networkLayer.dataTask(apiRequest) { (_ result: Result<CurrencyModel, NetworkError>) in
+            switch result {
+            case .success(let value):
+                self.menuDataSource = value.symbols
+                completion(value.symbols ?? ["USD": "", "INR": ""])
+            case .failure(let error):
+                print(error)
+                completion(["USD": "", "INR": ""])
+            }
+        }
+    }
+
 }
 
 extension HomeViewModel {
     static func builder() -> HomeViewModel {
-        let homeVM = HomeViewModel(url: URL(string: "https://currency-conversion-and-exchange-rates.p.rapidapi.com/convert"))
+        let homeVM = HomeViewModel(converterURL: URL(string: "https://currency-conversion-and-exchange-rates.p.rapidapi.com/convert"), currencyURL: URL(string: "https://currency-conversion-and-exchange-rates.p.rapidapi.com/symbols"))
         return homeVM
     }
 }

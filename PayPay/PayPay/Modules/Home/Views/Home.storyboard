@@ -36,12 +36,12 @@
                                                 </connections>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bdw-Lf-Spd" customClass="AutoAddPaddingButtton" customModule="PayPay" customModuleProvider="target">
-                                                <rect key="frame" x="40" y="250" width="53.666666666666657" height="40"/>
+                                                <rect key="frame" x="40" y="250" width="31.666666666666671" height="40"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="ls1-4b-yyE"/>
                                                 </constraints>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                <state key="normal" title="USD" image="arrowtriangle.down.fill" catalog="system">
+                                                <state key="normal" title="..." image="arrowtriangle.down.fill" catalog="system">
                                                     <color key="titleColor" red="0.0" green="0.45882352939999999" blue="0.89019607840000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                             </button>
@@ -72,12 +72,12 @@
                                                 </connections>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LSY-6L-jcT" customClass="AutoAddPaddingButtton" customModule="PayPay" customModuleProvider="target">
-                                                <rect key="frame" x="40" y="244.33333333333331" width="45.666666666666657" height="40"/>
+                                                <rect key="frame" x="40" y="244.33333333333331" width="31.666666666666671" height="40"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="jga-Qj-uCg"/>
                                                 </constraints>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                <state key="normal" title="INR" image="arrowtriangle.down.fill" catalog="system">
+                                                <state key="normal" title="..." image="arrowtriangle.down.fill" catalog="system">
                                                     <color key="titleColor" red="0.0" green="0.45882352939999999" blue="0.89019607840000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                             </button>
