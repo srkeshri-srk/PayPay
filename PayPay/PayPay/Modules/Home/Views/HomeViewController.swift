@@ -14,8 +14,15 @@ class HomeViewController: BaseViewController {
     @IBOutlet weak var bottomView: UIView!
     @IBOutlet weak var topTextField: UITextField!
     @IBOutlet weak var bottomTextField: UITextField!
+    @IBOutlet weak var topMenuButton: AutoAddPaddingButtton!
+    @IBOutlet weak var bottomMenuButton: AutoAddPaddingButtton!
     
     let homeVM: HomeViewModelProtocol = HomeViewModel.builder()
+    let dataSource = ["Apple", "Mango", "Orange", "Banana", "Kiwi", "Watermelon", "Apple", "Mango", "Orange", "Banana", "Kiwi", "Watermelon", "Apple", "Mango", "Orange", "Banana", "Kiwi", "Watermelon", "Apple", "Mango", "Orange", "Banana", "Kiwi", "Watermelon"]
+    var menuChildren: [UIMenuElement] = []
+    let actionClosure = { (action: UIAction) in
+        print(action.title)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,9 +42,24 @@ class HomeViewController: BaseViewController {
         
         topTextField.setupUnderLine()
         bottomTextField.setupUnderLine()
-        
         topTextField.placeholder = "USD"
         bottomTextField.placeholder = "INR"
+        
+        for fruit in dataSource {
+            menuChildren.append(UIAction(title: fruit, handler: actionClosure))
+        }
+        
+        [topMenuButton, bottomMenuButton].forEach { button in
+            button?.layer.cornerRadius = 5.0
+            button?.layer.borderColor = UIColor.white.cgColor
+            button?.layer.borderWidth = 1.0
+            button?.layer.masksToBounds = true
+            button?.tintColor = .white
+            button?.setTitleColor(.white, for: .normal)
+            button?.menu = UIMenu(options: .displayInline, children: menuChildren)
+            button?.showsMenuAsPrimaryAction = true
+            button?.changesSelectionAsPrimaryAction = true
+        }
     }
     
     @IBAction func swapButtonAction(_ sender: UIButton) {
@@ -61,7 +83,9 @@ class HomeViewController: BaseViewController {
     }
     
     @IBAction func topTextFieldEditingChanged(_ sender: UITextField) {
-        homeVM.convert(from: "USD", to: "INR", amount: 100.0) { value in
+        guard let value = sender.text, let amount = Double(value) else { return }
+        
+        homeVM.convert(from: "USD", to: "INR", amount: amount) { value in
             DispatchQueue.main.async {
                 self.bottomTextField.text = value.formatted(.currency(code: "INR"))
             }
@@ -70,7 +94,9 @@ class HomeViewController: BaseViewController {
     
     
     @IBAction func BottomTextFieldEditingChanged(_ sender: UITextField) {
-        homeVM.convert(from: "INR", to: "USD", amount: 100.0) { value in
+        guard let value = sender.text, let amount = Double(value) else { return }
+
+        homeVM.convert(from: "INR", to: "USD", amount: amount) { value in
             DispatchQueue.main.async {
                 self.topTextField.text = value.formatted(.currency(code: "USD"))
             }
