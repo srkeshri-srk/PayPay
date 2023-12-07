@@ -30,11 +30,14 @@ class HomeViewController: BaseViewController {
         
         topView.backgroundColor = .vistaBlue
         bottomView.backgroundColor = .cadetGrey
-        swapButton.backgroundColor = .white
-        swapButton.tintColor = .vistaBlue
+        swapButton.backgroundColor = .khaki
+        swapButton.tintColor = .black
         
         topTextField.setupUnderLine()
         bottomTextField.setupUnderLine()
+        
+        topTextField.placeholder = "USD"
+        bottomTextField.placeholder = "INR"
     }
     
     @IBAction func swapButtonAction(_ sender: UIButton) {
@@ -48,9 +51,13 @@ class HomeViewController: BaseViewController {
         
         let topTFTextValue = topTextField.text
         let bottomTFTextValue = bottomTextField.text
+        let topTFPlaceholder = topTextField.placeholder
+        let bottomTFPlaceholder = bottomTextField.placeholder
         
         topTextField.text = bottomTFTextValue
         bottomTextField.text = topTFTextValue
+        topTextField.placeholder = bottomTFPlaceholder
+        bottomTextField.placeholder = topTFPlaceholder
     }
     
     @IBAction func topTextFieldEditingChanged(_ sender: UITextField) {
