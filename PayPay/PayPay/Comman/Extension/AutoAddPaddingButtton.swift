@@ -2,12 +2,12 @@
 //  AutoAddPaddingButtton.swift
 //  PayPay
 //
-//  Created by Shreyansh Raj  Keshri on 07/12/23.
+//  Created by Shreyansh Raj  Keshri on 08/12/23.
 //
 
 import UIKit
 
-class AutoAddPaddingButtton : UIButton {
+class AutoAddPaddingButtton: UIButton {
     override var intrinsicContentSize: CGSize {
         get {
             let baseSize = super.intrinsicContentSize

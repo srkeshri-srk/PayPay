@@ -18,15 +18,10 @@ class HomeViewController: BaseViewController {
     @IBOutlet weak var bottomMenuButton: AutoAddPaddingButtton!
     
     let viewModel: HomeViewModelProtocol = HomeViewModel.builder()
-    var menuChildren: [UIMenuElement] = []
+    var topMenuElements: [UIMenuElement] = []
+    var bottomMenuElements: [UIMenuElement] = []
     var topSelectedMenuValue: String = ""
     var bottomSelectedMenuValue: String = ""
-    let topActionClosure = { (action: UIAction) in
-        print(action.title)
-    }
-    let bottomActionClosure = { (action: UIAction) in
-        print(action.title)
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,8 +42,8 @@ class HomeViewController: BaseViewController {
         
         topTextField.setupUnderLine()
         bottomTextField.setupUnderLine()
-        topTextField.placeholder = "USD"
-        bottomTextField.placeholder = "INR"
+        topTextField.placeholder = "..."
+        bottomTextField.placeholder = "..."
     }
     
     func setupCurrencyMenu() {
@@ -63,18 +58,45 @@ class HomeViewController: BaseViewController {
         
         viewModel.getAllCurrency { [weak self] menuDataSource in
             guard let self = self else { return }
-            
-            for currency in menuDataSource.keys {
-                self.menuChildren.append(UIAction(title: currency, handler: topActionClosure))
+                        
+            for currency in menuDataSource.keys.sorted() {
+                if self.topSelectedMenuValue.isEmpty {
+                    self.topSelectedMenuValue = currency
+                    self.updateUI()
+                }
+                
+                if self.bottomSelectedMenuValue.isEmpty {
+                    self.bottomSelectedMenuValue = currency
+                    self.updateUI()
+                }
+                
+                self.topMenuElements.append(UIAction(title: currency, handler: { action in
+                    self.topSelectedMenuValue = action.title
+                    self.updateUI()
+                }))
+                
+                self.bottomMenuElements.append(UIAction(title: currency, handler: { action in
+                    self.bottomSelectedMenuValue = action.title
+                    self.updateUI()
+                }))
             }
             
             DispatchQueue.main.async {
-                [self.topMenuButton, self.bottomMenuButton].forEach { button in
-                    button?.menu = UIMenu(options: .displayInline, children: self.menuChildren)
-                    button?.showsMenuAsPrimaryAction = true
-                    button?.changesSelectionAsPrimaryAction = true
-                }
+                self.topMenuButton.menu = UIMenu(options: .displayInline, children: self.topMenuElements)
+                self.topMenuButton.showsMenuAsPrimaryAction = true
+                self.topMenuButton.changesSelectionAsPrimaryAction = true
+                
+                self.bottomMenuButton.menu = UIMenu(options: .displayInline, children: self.bottomMenuElements)
+                self.bottomMenuButton.showsMenuAsPrimaryAction = true
+                self.bottomMenuButton.changesSelectionAsPrimaryAction = true
             }
+        }
+    }
+    
+    func updateUI() {
+        DispatchQueue.main.async {
+            self.topTextField.placeholder = self.topSelectedMenuValue
+            self.bottomTextField.placeholder = self.bottomSelectedMenuValue
         }
     }
     
@@ -86,7 +108,7 @@ class HomeViewController: BaseViewController {
                 self.swapButton.transform = .identity
             }
         }
-        
+                
         let topTFTextValue = topTextField.text
         let bottomTFTextValue = bottomTextField.text
         let topTFPlaceholder = topTextField.placeholder
@@ -101,22 +123,21 @@ class HomeViewController: BaseViewController {
     @IBAction func topTextFieldEditingChanged(_ sender: UITextField) {
         guard let value = sender.text, let amount = Double(value) else { return }
         
-        viewModel.convert(from: "USD", to: "INR", amount: amount) { value in
+        viewModel.convert(from: topSelectedMenuValue, to: bottomSelectedMenuValue, amount: amount) { value in
             DispatchQueue.main.async {
-                self.bottomTextField.text = value.formatted(.currency(code: "INR"))
+                self.bottomTextField.text = value.formatted(.currency(code: self.bottomSelectedMenuValue))
             }
         }
     }
     
-    
+        
     @IBAction func BottomTextFieldEditingChanged(_ sender: UITextField) {
         guard let value = sender.text, let amount = Double(value) else { return }
-
-        viewModel.convert(from: "INR", to: "USD", amount: amount) { value in
+        
+        viewModel.convert(from: bottomSelectedMenuValue, to: topSelectedMenuValue, amount: amount) { value in
             DispatchQueue.main.async {
-                self.topTextField.text = value.formatted(.currency(code: "USD"))
+                self.topTextField.text = value.formatted(.currency(code: self.topSelectedMenuValue))
             }
         }
     }
-    
 }

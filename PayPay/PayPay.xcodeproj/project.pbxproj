@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E1998EE42B222995002ACDD6 /* AutoAddPaddingButtton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1998EE32B222995002ACDD6 /* AutoAddPaddingButtton.swift */; };
+		E12BFBB92B22E86D0059E64D /* AutoAddPaddingButtton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12BFBB82B22E86D0059E64D /* AutoAddPaddingButtton.swift */; };
 		E1BA745B2B2192AC00B5C7B5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BA745A2B2192AC00B5C7B5 /* AppDelegate.swift */; };
 		E1BA745D2B2192AC00B5C7B5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BA745C2B2192AC00B5C7B5 /* SceneDelegate.swift */; };
 		E1BA74642B2192AF00B5C7B5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1BA74632B2192AF00B5C7B5 /* Assets.xcassets */; };
@@ -29,7 +29,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		E1998EE32B222995002ACDD6 /* AutoAddPaddingButtton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoAddPaddingButtton.swift; sourceTree = "<group>"; };
+		E12BFBB82B22E86D0059E64D /* AutoAddPaddingButtton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoAddPaddingButtton.swift; sourceTree = "<group>"; };
 		E1BA74572B2192AC00B5C7B5 /* PayPay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PayPay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1BA745A2B2192AC00B5C7B5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E1BA745C2B2192AC00B5C7B5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -152,7 +152,7 @@
 			isa = PBXGroup;
 			children = (
 				E1CBD6F32B21C43D00970F71 /* UITextField+Extension.swift */,
-				E1998EE32B222995002ACDD6 /* AutoAddPaddingButtton.swift */,
+				E12BFBB82B22E86D0059E64D /* AutoAddPaddingButtton.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -242,7 +242,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E1998EE42B222995002ACDD6 /* AutoAddPaddingButtton.swift in Sources */,
+				E12BFBB92B22E86D0059E64D /* AutoAddPaddingButtton.swift in Sources */,
 				E1BA747B2B21955A00B5C7B5 /* Constants.swift in Sources */,
 				E1CBD6FE2B21CC4800970F71 /* NetworkLayer+DataTask.swift in Sources */,
 				E1CBD7032B21CC4800970F71 /* JSONParser.swift in Sources */,
@@ -400,6 +400,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = QA6K73HN4W;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PayPay/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -427,6 +428,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = QA6K73HN4W;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PayPay/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
