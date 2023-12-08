@@ -16,7 +16,7 @@ class BaseViewController: UIViewController {
     }
     
     private func setupUI() {
-        view.backgroundColor = .vistaBlue
+        view.backgroundColor = .catalinaBlue
     }
     
     
@@ -28,7 +28,7 @@ class BaseViewController: UIViewController {
 
         // prevent Nav Bar color change on scroll view push behind NavBar
         standardAppearance.configureWithOpaqueBackground()
-        standardAppearance.backgroundColor = .vistaBlue
+        standardAppearance.backgroundColor = .catalinaBlue
 
         self.navigationController?.navigationBar.prefersLargeTitles = prefersLargeTitles
         self.navigationController?.navigationBar.standardAppearance = standardAppearance

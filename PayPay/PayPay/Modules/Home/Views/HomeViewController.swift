@@ -35,15 +35,17 @@ class HomeViewController: BaseViewController {
         swapButton.layer.cornerRadius = 5.0
         swapButton.layer.masksToBounds = true
         
-        topView.backgroundColor = .vistaBlue
-        bottomView.backgroundColor = .cadetGrey
-        swapButton.backgroundColor = .khaki
-        swapButton.tintColor = .black
+        topView.backgroundColor = .catalinaBlue
+        bottomView.backgroundColor = .khaki
+        swapButton.backgroundColor = .white
+        swapButton.tintColor = .catalinaBlue
         
         topTextField.setupUnderLine()
         bottomTextField.setupUnderLine()
-        topTextField.placeholder = "..."
-        bottomTextField.placeholder = "..."
+        topTextField.attributedPlaceholder = NSAttributedString(string: "...",
+                                                                     attributes: [NSAttributedString.Key.foregroundColor: UIColor.khaki])
+        bottomTextField.attributedPlaceholder = NSAttributedString(string: "...",
+                                                                        attributes: [NSAttributedString.Key.foregroundColor: UIColor.catalinaBlue])
     }
     
     func setupCurrencyMenu() {
@@ -55,6 +57,7 @@ class HomeViewController: BaseViewController {
             button?.tintColor = .white
             button?.setTitleColor(.white, for: .normal)
         }
+        
         
         viewModel.getAllCurrency { [weak self] menuDataSource in
             guard let self = self else { return }
@@ -95,8 +98,10 @@ class HomeViewController: BaseViewController {
     
     func updateUI() {
         DispatchQueue.main.async {
-            self.topTextField.placeholder = self.topSelectedMenuValue
-            self.bottomTextField.placeholder = self.bottomSelectedMenuValue
+            self.topTextField.attributedPlaceholder = NSAttributedString(string: self.topSelectedMenuValue,
+                                                                         attributes: [NSAttributedString.Key.foregroundColor: UIColor.khaki])
+            self.bottomTextField.attributedPlaceholder = NSAttributedString(string: self.bottomSelectedMenuValue,
+                                                                            attributes: [NSAttributedString.Key.foregroundColor: UIColor.catalinaBlue])
         }
     }
     
