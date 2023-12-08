@@ -118,6 +118,8 @@ class HomeViewController: BaseViewController {
         bottomTextField.text = topTFTextValue
         topSelectedMenuValue = bottomSelected
         bottomSelectedMenuValue = topSelected
+        topMenuButton.setTitle(bottomSelected, for: .normal)
+        bottomMenuButton.setTitle(topSelected, for: .normal)
         updateUI()
     }
     
