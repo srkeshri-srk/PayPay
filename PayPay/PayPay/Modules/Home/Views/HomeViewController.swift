@@ -111,13 +111,14 @@ class HomeViewController: BaseViewController {
                 
         let topTFTextValue = topTextField.text
         let bottomTFTextValue = bottomTextField.text
-        let topTFPlaceholder = topTextField.placeholder
-        let bottomTFPlaceholder = bottomTextField.placeholder
+        let topSelected = topSelectedMenuValue
+        let bottomSelected = bottomSelectedMenuValue
         
         topTextField.text = bottomTFTextValue
         bottomTextField.text = topTFTextValue
-        topTextField.placeholder = bottomTFPlaceholder
-        bottomTextField.placeholder = topTFPlaceholder
+        topSelectedMenuValue = bottomSelected
+        bottomSelectedMenuValue = topSelected
+        updateUI()
     }
     
     @IBAction func topTextFieldEditingChanged(_ sender: UITextField) {
