@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E12BFBB92B22E86D0059E64D /* AutoAddPaddingButtton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12BFBB82B22E86D0059E64D /* AutoAddPaddingButtton.swift */; };
+		E12BFBC62B23E8190059E64D /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = E12BFBC52B23E8190059E64D /* IQKeyboardManagerSwift */; };
 		E1BA745B2B2192AC00B5C7B5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BA745A2B2192AC00B5C7B5 /* AppDelegate.swift */; };
 		E1BA745D2B2192AC00B5C7B5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BA745C2B2192AC00B5C7B5 /* SceneDelegate.swift */; };
 		E1BA74642B2192AF00B5C7B5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1BA74632B2192AF00B5C7B5 /* Assets.xcassets */; };
@@ -57,12 +58,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E12BFBC62B23E8190059E64D /* IQKeyboardManagerSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E12BFBC72B23E8E00059E64D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E1CBD7052B21CC7600970F71 /* HomeModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E12BFBC82B23E8E40059E64D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E1CBD7072B21CC8100970F71 /* HomeViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		E1BA744E2B2192AC00B5C7B5 = {
 			isa = PBXGroup;
 			children = (
@@ -123,8 +141,8 @@
 			isa = PBXGroup;
 			children = (
 				E1BA74762B21942600B5C7B5 /* Views */,
-				E1CBD7052B21CC7600970F71 /* HomeModel.swift */,
-				E1CBD7072B21CC8100970F71 /* HomeViewModel.swift */,
+				E12BFBC72B23E8E00059E64D /* Model */,
+				E12BFBC82B23E8E40059E64D /* ViewModel */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -186,6 +204,9 @@
 			dependencies = (
 			);
 			name = PayPay;
+			packageProductDependencies = (
+				E12BFBC52B23E8190059E64D /* IQKeyboardManagerSwift */,
+			);
 			productName = PayPay;
 			productReference = E1BA74572B2192AC00B5C7B5 /* PayPay.app */;
 			productType = "com.apple.product-type.application";
@@ -214,6 +235,9 @@
 				Base,
 			);
 			mainGroup = E1BA744E2B2192AC00B5C7B5;
+			packageReferences = (
+				E12BFBC42B23E8190059E64D /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
+			);
 			productRefGroup = E1BA74582B2192AC00B5C7B5 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -471,6 +495,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E12BFBC42B23E8190059E64D /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.5.16;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E12BFBC52B23E8190059E64D /* IQKeyboardManagerSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E12BFBC42B23E8190059E64D /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
+			productName = IQKeyboardManagerSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = E1BA744F2B2192AC00B5C7B5 /* Project object */;
 }
